@@ -31,6 +31,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
 
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({ bufnr = bufnr }) ]]
+
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
@@ -44,3 +46,4 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
 })
+
