@@ -52,6 +52,18 @@ keymap("v", ">", ">gv", opts)
 
 -- Plugins --
 
+-- telescope
+
+-- vscode like find files
+keymap(
+	"n",
+	"<C-p>",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
+)
+keymap("n", "<C-o>", "<cmd>lua require('telescope').extensions.projects.projects()<cr>")
+
+keymap("n", "<C-f>", "<cmd>Telescope live_grep theme=ivy<cr>")
+
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
@@ -59,5 +71,5 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+keymap("n", "<C-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+keymap("x", "<C-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
