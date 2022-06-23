@@ -55,7 +55,7 @@ local setup = {
 		spacing = 3, -- spacing between columns
 		align = "left", -- align columns left, center or right
 	},
-	ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
+	ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 	show_help = true, -- show help message on the command line when the popup is visible
 	triggers = "auto", -- automatically setup triggers
@@ -88,6 +88,7 @@ local mappings = {
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["t"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Terminal" },
 
 	g = {
 		name = "Git",
@@ -144,13 +145,6 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-	},
-
-	t = {
-		name = "Terminal",
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 }
 

@@ -11,14 +11,14 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
-null_ls.setup {
+null_ls.setup({
   debug = false,
   sources = {
     code_actions.eslint_d,
-    formatting.prettierd,
-    formatting.black.with { extra_args = { "--fast" } },
+    formatting.prettier,
+    formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
     formatting.google_java_format,
     diagnostics.flake8,
   },
-}
+})
