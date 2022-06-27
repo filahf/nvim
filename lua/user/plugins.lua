@@ -66,6 +66,7 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-path" }) -- path completions
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
+	use({ "github/copilot.vim" })
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
