@@ -15,6 +15,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		code_actions.eslint,
+		diagnostics.eslint,
 		formatting.prettier,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
