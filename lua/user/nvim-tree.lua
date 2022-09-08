@@ -53,6 +53,16 @@ nvim_tree.setup({
 			error = "",
 		},
 	},
+	filters = {
+		dotfiles = true,
+		custom = {
+			["node_modules"] = false,
+			["__pycache__"] = false,
+		},
+	},
+	live_filter = {
+		always_show_folders = false,
+	},
 	view = {
 		width = 30,
 		height = 30,

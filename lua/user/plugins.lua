@@ -84,7 +84,7 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-	use({ "editorconfig/editorconfig-vim" })
+	use({ "gpanders/editorconfig.nvim" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })

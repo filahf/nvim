@@ -14,11 +14,14 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-		code_actions.eslint,
-		diagnostics.eslint,
-		formatting.prettier,
+		code_actions.eslint_d,
+		diagnostics.eslint_d,
+		formatting.eslint_d,
+		formatting.prettierd,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		code_actions.gitsigns,
 	},
 })
+
+--[[ vim.lsp.buf.format({ timeout_ms = 2000 }) ]]

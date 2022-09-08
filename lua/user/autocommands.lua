@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format({ bufnr = bufnr }) ]])
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format({ bufnr = bufnr, timeout = 5000 }) ]])
 
 vim.cmd("autocmd FocusGained * checktime")
 
