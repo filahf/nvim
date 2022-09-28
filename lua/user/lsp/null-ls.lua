@@ -22,5 +22,3 @@ null_ls.setup({
 		code_actions.gitsigns,
 	},
 })
-
---[[ vim.lsp.buf.format({ timeout_ms = 2000 }) ]]

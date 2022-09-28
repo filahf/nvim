@@ -54,11 +54,8 @@ nvim_tree.setup({
 		},
 	},
 	filters = {
-		dotfiles = true,
-		custom = {
-			["node_modules"] = false,
-			["__pycache__"] = false,
-		},
+		dotfiles = false,
+		exclude = { ".git", "node_modules", ".env*" },
 	},
 	live_filter = {
 		always_show_folders = false,
