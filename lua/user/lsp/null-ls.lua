@@ -16,8 +16,13 @@ null_ls.setup({
 	sources = {
 		code_actions.eslint_d,
 		diagnostics.eslint_d,
-		formatting.prettierd,
-		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.eslint_d,
+		diagnostics.markdownlint,
+		formatting.prettierd.with({
+			env = {
+				PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
+			},
+		}),
 		formatting.stylua,
 		code_actions.gitsigns,
 	},

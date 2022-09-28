@@ -42,4 +42,4 @@ for _, server in pairs(servers) do
 	lspconfig[server].setup(opts)
 end
 
-require("user.lsp.settings.tsserver").setup(opts.on_attach, opts.capabilities)
+require("user.lsp.settings.typescript").setup(opts.on_attach, opts.capabilities)
