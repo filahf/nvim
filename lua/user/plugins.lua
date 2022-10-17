@@ -93,7 +93,8 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+	-- Scrollbar
+	use("petertriho/nvim-scrollbar")
 	--theme
 	use({
 		"catppuccin/nvim",
