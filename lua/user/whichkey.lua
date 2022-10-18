@@ -126,13 +126,14 @@ local mappings = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+		d = { "<cmd>TypescriptGoToSourceDefinition<cr>", "Go to TS definition" },
+		i = { "<cmd>TypescriptAddMissingImports<cr>", "Import missing imports" },
 		o = {
 			"<cmd>lua vim.lsp.buf.execute_command({command = '_typescript.organizeImports', arguments = {vim.fn.expand('%:p')}})<cr>",
 			"Organize Imports",
 		},
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+		R = { "<cmd>TypescriptRenameFile<cr>", "Rename TS file" },
 	},
 	s = {
 		name = "Search",
