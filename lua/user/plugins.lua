@@ -17,10 +17,10 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+	augroup packer_user_config
+	autocmd!
+	autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	augroup end
 ]])
 
 -- Use a protected call so we don't error out on first use
@@ -71,7 +71,8 @@ return packer.startup(function(use)
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "jose-elias-alvarez/typescript.nvim" }) -- for ts commands
 	use({ "RRethy/vim-illuminate" })
@@ -90,6 +91,7 @@ return packer.startup(function(use)
 	use({ "tpope/vim-sleuth" })
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
+	use({ "windwp/nvim-spectre" }) -- Search and replace
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
