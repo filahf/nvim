@@ -135,6 +135,7 @@ local mappings = {
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		R = { "<cmd>TypescriptRenameFile<cr>", "Rename TS file" },
 	},
+	["m"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" },
 	s = {
 		name = "Search",
 		--[[ b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" }, ]]

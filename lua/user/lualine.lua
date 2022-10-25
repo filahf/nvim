@@ -12,20 +12,20 @@ local diagnostics = {
 	sources = { "nvim_lsp" },
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
-	colored = false,
+	colored = true,
 	always_visible = true,
 }
 
 local diff = {
 	"diff",
-	colored = false,
-	symbols = { added = "", modified = "", removed = "" }, -- changes diff symbols
+	colored = true,
+	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
 	cond = hide_in_width,
 }
 
 local filetype = {
 	"filetype",
-	icons_enabled = false,
+	icons_enabled = true,
 }
 
 local location = {

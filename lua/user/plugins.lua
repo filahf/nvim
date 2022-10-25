@@ -60,6 +60,12 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "tpope/vim-surround" })
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -89,6 +95,7 @@ return packer.startup(function(use)
 	})
 
 	use({ "tpope/vim-sleuth" })
+
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
 	use({ "windwp/nvim-spectre" }) -- Search and replace
@@ -96,7 +103,7 @@ return packer.startup(function(use)
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	-- Scrollbar
-	use("petertriho/nvim-scrollbar")
+	use({ "echasnovski/mini.nvim" })
 	--theme
 	use({
 		"catppuccin/nvim",
