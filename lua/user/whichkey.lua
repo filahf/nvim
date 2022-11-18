@@ -86,6 +86,7 @@ local mappings = {
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
+	["W"] = { "<cmd>noa w!<CR>", "Save without format" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	-- ["t"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Terminal" },
@@ -138,18 +139,14 @@ local mappings = {
 	["m"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" },
 	s = {
 		name = "Search",
-		--[[ b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" }, ]]
-		--[[ h = { "<cmd>Telescope help_tags<cr>", "Find Help" }, ]]
-		--[[ M = { "<cmd>Telescope man_pages<cr>", "Man Pages" }, ]]
-		--[[ r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" }, ]]
-		--[[ R = { "<cmd>Telescope registers<cr>", "Registers" }, ]]
-		--[[ k = { "<cmd>Telescope keymaps<cr>", "Keymaps" }, ]]
-		--[[ C = { "<cmd>Telescope commands<cr>", "Commands" }, ]]
-		--[[ s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" }, ]]
-		r = {
-			"<cmd>lua require('spectre').open()<CR>",
-			"Find and Replace",
-		},
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		R = { "<cmd>Telescope registers<cr>", "Registers" },
+		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		C = { "<cmd>Telescope commands<cr>", "Commands" },
+		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 	},
 }
 
