@@ -93,6 +93,7 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+	use({ "tikhomirov/vim-glsl" })
 
 	use({ "tpope/vim-sleuth" })
 
