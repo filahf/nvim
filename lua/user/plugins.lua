@@ -103,8 +103,6 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	-- Scrollbar
-	use({ "echasnovski/mini.nvim" })
 	--theme
 	use({
 		"catppuccin/nvim",
