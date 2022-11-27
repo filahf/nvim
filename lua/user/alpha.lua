@@ -5,13 +5,6 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-	[[        ███████╗██╗██╗     ██╗██████╗             ]],
-	[[        ██╔════╝██║██║     ██║██╔══██╗            ]],
-	[[        █████╗  ██║██║     ██║██████╔╝            ]],
-	[[        ██╔══╝  ██║██║     ██║██╔═══╝             ]],
-	[[        ██║     ██║███████╗██║██║                 ]],
-	[[        ╚═╝     ╚═╝╚══════╝╚═╝╚═╝                 ]],
-	[[                                                  ]],
 	[[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
 	[[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
 	[[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
@@ -29,13 +22,13 @@ dashboard.section.buttons.val = {
 	dashboard.button("c", " " .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
 	dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 }
-local function footer()
-	return "Filip Åhfelt"
-end
-
-dashboard.section.footer.val = footer()
-
-dashboard.section.footer.opts.hl = "Type"
+--[[ local function footer() ]]
+--[[ 	return "Filip Åhfelt" ]]
+--[[ end ]]
+--[[]]
+--[[ dashboard.section.footer.val = footer() ]]
+--[[]]
+--[[ dashboard.section.footer.opts.hl = "Type" ]]
 dashboard.section.header.opts.hl = "Type"
 dashboard.section.buttons.opts.hl = "Keyword"
 
