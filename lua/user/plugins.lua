@@ -109,6 +109,7 @@ return packer.startup(function(use)
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
+	use({ "protesilaos/tempus-themes-vim" })
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
