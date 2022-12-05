@@ -20,6 +20,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("t", " " .. " Find text", ":Telescope live_grep <CR>"),
 	dashboard.button("F", " " .. " Find and replace", ":lua require('spectre').open()<CR>"),
 	dashboard.button("c", " " .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
+	dashboard.button("C", " " .. " Sway Config", ":e ~/.config/sway/config <CR>"),
 	dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 }
 --[[ local function footer() ]]
