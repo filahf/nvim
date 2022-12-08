@@ -72,7 +72,7 @@ local quick_link_btns = {
 local function config_section()
 	local subtitle = " "
 	local modified_dotfiles = require("user.dotfile-utils").modified_dotfiles()
-	if modified_dotfiles then
+	if tonumber(modified_dotfiles) ~= 0 then
 		subtitle = " You have " .. modified_dotfiles .. "unsynchronized dotfile(s)"
 	end
 	return {
