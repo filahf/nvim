@@ -67,6 +67,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "axelvc/template-string.nvim" })
+	use({ "NvChad/nvim-colorizer.lua" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -75,6 +76,7 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "github/copilot.vim" })
+	use({ "ajouellette/sway-vim-syntax" })
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
