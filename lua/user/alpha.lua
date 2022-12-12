@@ -82,7 +82,7 @@ local function config_section()
 			dashboard.button("c", "  lazydotfiles", "<cmd>lua _LAZYGIT_DOTFILES_TOGGLE()<CR>"),
 			dashboard.button("c 1", "  nvim", ":cd ~/.config/nvim/<CR> :e init.lua<CR>"),
 			dashboard.button("c 2", "  sway", ":cd ~/.config/sway/<CR> :e config<CR>"),
-			dashboard.button("c 3", "  waybar", ":cd ~/.config/sway/<CR> :e config<CR>"),
+			dashboard.button("c 3", "  waybar", ":cd ~/.config/waybar/<CR> :e config<CR>"),
 			dashboard.button("c 4", "  foot", ":e ~/.config/foot/foot.ini<CR>"),
 			dashboard.button("c 5", "  fish", ":cd ~/.config/fish/<CR> :e config.fish<CR>"),
 			{ type = "padding", val = 1 },
