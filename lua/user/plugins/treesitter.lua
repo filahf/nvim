@@ -8,7 +8,6 @@ return {
       { "<c-space>", desc = "Increment selection" },
       { "<bs>", desc = "Schrink selection", mode = "x" },
     },
-    ---@type TSConfig
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
@@ -40,7 +39,6 @@ return {
         },
       },
     },
-    ---@param opts TSConfig
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,

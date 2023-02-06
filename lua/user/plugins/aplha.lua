@@ -51,7 +51,7 @@ return {
 
     local function config_section()
       local subtitle = " "
-      local modified_dotfiles = require("user.alpha.dotfile-utils").modified_dotfiles()
+      local modified_dotfiles = require("user.utils.dotfile-utils").modified_dotfiles()
       if tonumber(modified_dotfiles) ~= 0 then
         subtitle = " You have " .. modified_dotfiles .. "unsynchronized dotfile(s)"
       end
