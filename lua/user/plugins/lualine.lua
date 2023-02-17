@@ -1,55 +1,62 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  config = function()
-    local hide_in_width = function()
-      return vim.fn.winwidth(0) > 80
-    end
+  opts = function()
+    local icons = require("user.utils.icons")
 
-    local diagnostics = {
-      "diagnostics",
-      sources = { "nvim_lsp" },
-      sections = { "error", "warn" },
-      symbols = { error = " ", warn = " " },
-      colored = true,
-      always_visible = true,
-    }
-
-    local diff = {
-      "diff",
-      colored = true,
-      symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-      cond = hide_in_width,
-    }
-
-    local filetype = {
-      "filetype",
-      icons_enabled = true,
-    }
-
-    local location = {
-      "location",
-      padding = 0,
-    }
-
-    require("lualine").setup({
+    return {
       options = {
-        globalstatus = true,
-        icons_enabled = true,
         theme = "auto",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "dashboard" },
-        always_divide_middle = true,
+        globalstatus = true,
+        disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
       },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
-        lualine_c = { diagnostics },
-        lualine_x = { diff, "SleuthIndicator", "encoding", filetype },
-        lualine_y = { location },
-        lualine_z = { "progress" },
+        lualine_c = {
+          {
+            "diagnostics",
+            symbols = {
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
+            },
+          },
+          {
+            "filetype",
+            icon_only = true,
+            separator = "",
+            padding = { left = 1, right = 0 },
+          },
+          { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+          -- stylua: ignore
+          {
+            function() return require("nvim-navic").get_location() end,
+            cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
+          },
+        },
+        lualine_x = {
+          {
+            "diff",
+            symbols = {
+              added = icons.git.added,
+              modified = icons.git.modified,
+              removed = icons.git.removed,
+            },
+          },
+        },
+        lualine_y = {
+          { "progress", separator = "", padding = { left = 1, right = 0 } },
+          { "location", padding = { left = 0, right = 1 } },
+        },
+        lualine_z = {
+          function()
+            return " " .. os.date("%R")
+          end,
+        },
       },
-    })
+      extensions = { "neo-tree" },
+    }
   end,
 }
