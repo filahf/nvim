@@ -3,7 +3,7 @@ return {
     "catppuccin/nvim",
     priority = 1000,
     config = function()
-      vim.opt.background = "dark"
+      -- vim.opt.background = "dark"
       require("catppuccin").setup({
         flavour = "mocha", -- latte, frappe, macchiato, mocha
         background = { -- :h background
@@ -46,18 +46,50 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      vim.cmd("colorscheme catppuccin")
+      -- vim.cmd("colorscheme catppuccin")
     end,
   },
-  -- {
-  --   "olivercederborg/poimandres.nvim",
-  --   config = function()
-  --     require("poimandres").setup({
-  --       -- leave this setup function empty for default config
-  --       -- or refer to the configuration section
-  --       -- for configuration options
-  --     })
-  --     -- vim.cmd("colorscheme poimandres")
-  --   end,
-  -- },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.opt.background = "light"
+
+      require("rose-pine").setup({
+        highlight_groups = {
+          ColorColumn = { bg = "rose" },
+          MiniIndentscopeSymbol = { fg = "rose" },
+        },
+      })
+      -- vim.cmd("colorscheme rose-pine")
+    end,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    name = "gruvbox",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.opt.background = "light"
+
+      require("gruvbox").setup({
+        -- highlight_groups = {
+        --   ColorColumn = { bg = "rose" },
+        --   MiniIndentscopeSymbol = { fg = "rose" },
+        -- },
+      })
+      -- vim.cmd("colorscheme gruvbox")
+    end,
+  },
+  {
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nordic").load()
+      vim.cmd("colorscheme nordic")
+    end,
+  },
 }
