@@ -122,7 +122,11 @@ return {
           "Diff",
         },
       },
-
+      r = {
+        name = "Rename",
+        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        R = { "<cmd>TypescriptRenameFile<cr>", "Rename TS file" },
+      },
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -133,8 +137,7 @@ return {
           "<cmd>lua vim.lsp.buf.execute_command({command = '_typescript.organizeImports', arguments = {vim.fn.expand('%:p')}})<cr>",
           "Organize Imports",
         },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        R = { "<cmd>TypescriptRenameFile<cr>", "Rename TS file" },
+        r = { "<cmd>Telescope lsp_references<cr>", "References" },
       },
       s = {
         name = "Search",

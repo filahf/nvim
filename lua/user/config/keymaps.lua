@@ -56,9 +56,9 @@ keymap("v", ">", ">gv", opts)
 
 -- vscode like find files
 keymap(
-	"n",
-	"<C-p>",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
+  "n",
+  "<C-p>",
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
 )
 keymap("n", "<C-o>", "<cmd>lua require('telescope').extensions.projects.projects()<cr>")
 

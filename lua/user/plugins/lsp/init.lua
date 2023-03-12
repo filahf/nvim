@@ -17,7 +17,6 @@ return {
 
       vim.diagnostic.config({
         virtual_text = false,
-        virtual_lines = { only_current_line = true },
       })
       local opts = {
         on_attach = function(client, bufnr)
@@ -110,9 +109,10 @@ return {
     end,
   },
   {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    "smjonas/inc-rename.nvim",
+    event = "VeryLazy",
     config = function()
-      require("lsp_lines").setup()
+      require("inc_rename").setup()
     end,
   },
   {
