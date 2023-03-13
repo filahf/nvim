@@ -74,9 +74,9 @@ return {
       return {
         sources = {
           nls.builtins.formatting.prettierd,
-          nls.builtins.diagnostics.eslint_d,
-          nls.builtins.formatting.eslint_d,
-          nls.builtins.code_actions.eslint_d,
+          nls.builtins.diagnostics.eslint,
+          nls.builtins.formatting.eslint,
+          nls.builtins.code_actions.eslint,
           nls.builtins.formatting.stylua,
           nls.builtins.diagnostics.flake8,
         },
@@ -169,5 +169,9 @@ return {
         icons = require("user.utils.icons").kinds,
       }
     end,
+  },
+  {
+    "tikhomirov/vim-glsl",
+    lazy = true,
   },
 }
