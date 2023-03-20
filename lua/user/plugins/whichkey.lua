@@ -109,7 +109,6 @@ return {
         ["X"] = { "<cmd>lua require('textcase').lsp_rename('to_constant_case')<cr>", "CONSTANT_CASE" },
         ["T"] = { "<cmd>lua require('textcase').lsp_rename('to_title_case')<cr>", "LSP Title Case" },
       },
-
       t = {
         name = "Trouble",
         ["t"] = { "<cmd>TroubleToggle<cr>", "Toggle diagnostics" },
@@ -118,7 +117,6 @@ return {
         ["q"] = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix items" },
         ["l"] = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
       },
-
       g = {
         name = "Git",
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
