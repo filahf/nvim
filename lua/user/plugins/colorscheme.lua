@@ -10,7 +10,7 @@ return {
           light = "latte",
           dark = "mocha",
         },
-        transparent_background = false,
+        transparent_background = true,
         term_colors = false,
         dim_inactive = {
           enabled = false,
@@ -88,7 +88,13 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("nordic").load()
+      require("nordic").setup({
+        transparent_bg = true,
+        leap = {
+          -- Dims the backdrop when using leap.
+          dim_backdrop = true,
+        },
+      })
       vim.cmd("colorscheme nordic")
     end,
   },
