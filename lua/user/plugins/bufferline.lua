@@ -3,14 +3,20 @@ return {
   dependencies = {
     "moll/vim-bbye",
   },
-  -- event = "VeryLazy",
+  event = "VeryLazy",
   config = function()
     require("bufferline").setup({
       options = {
         indicator = {
           style = "none",
         },
-        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "",
+            padding = 1,
+          },
+        },
         separator_style = "thin",
       },
     })
