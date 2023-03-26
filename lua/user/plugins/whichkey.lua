@@ -81,8 +81,17 @@ return {
     local mappings = {
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
       ["b"] = {
-        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Buffers",
+        name = "Buffers",
+        ["p"] = { "<cmd>BufferlineTogglePin<cr>", "Toggle pin" },
+        ["P"] = { "<Cmd>BufferLineGroupClose ungrouped<CR>", "Close non-pinned" },
+        ["e"] = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
+        ["l"] = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },
+        ["s"] = {
+          "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+          "Search buffer",
+        },
+        ["x"] = { "<cmd>BufferLineCloseRight<cr>", "Close Buffers to the Right" },
+        ["X"] = { "<cmd>BufferLineCloseLeft<cr>", "Close Buffers to the Left" },
       },
       ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
       ["w"] = { "<cmd>w!<CR>", "Save" },
