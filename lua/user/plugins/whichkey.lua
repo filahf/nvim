@@ -82,7 +82,7 @@ return {
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
       ["b"] = {
         name = "Buffers",
-        ["p"] = { "<cmd>BufferlineTogglePin<cr>", "Toggle pin" },
+        ["p"] = { "<cmd>BufferLineTogglePin<cr>", "Toggle pin" },
         ["P"] = { "<Cmd>BufferLineGroupClose ungrouped<CR>", "Close non-pinned" },
         ["e"] = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
         ["l"] = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },

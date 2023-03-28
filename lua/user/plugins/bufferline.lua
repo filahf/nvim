@@ -10,6 +10,11 @@ return {
         indicator = {
           style = "none",
         },
+        groups = {
+          items = {
+            require("bufferline.groups").builtin.pinned:with({ icon = "" }),
+          },
+        },
         offsets = {
           {
             filetype = "neo-tree",

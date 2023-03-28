@@ -74,13 +74,7 @@ return {
     config = function()
       -- vim.opt.background = "light"
 
-      require("gruvbox").setup({
-        -- highlight_groups = {
-        --   ColorColumn = { bg = "rose" },
-        --   MiniIndentscopeSymbol = { fg = "rose" },
-        -- },
-      })
-      -- vim.cmd("colorscheme gruvbox")
+      require("gruvbox").setup({})
     end,
   },
   {
@@ -98,4 +92,14 @@ return {
       vim.cmd("colorscheme nordic")
     end,
   },
+  -- {
+  --   "projekt0n/github-nvim-theme",
+  --   branch = "0.0.x",
+  --   config = function()
+  --     require("github-theme").setup({
+  --       theme_style = "light",
+  --     })
+  --     -- vim.cmd("colorscheme github_light")
+  --   end,
+  -- },
 }
