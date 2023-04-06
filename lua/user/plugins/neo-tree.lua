@@ -42,6 +42,7 @@ return {
         event_handlers = {
           {
             event = "file_opened",
+            ---@diagnostic disable-next-line: unused-local
             handler = function(file_path)
               require("neo-tree").close_all()
             end,
@@ -53,12 +54,12 @@ return {
             highlight = "NeoTreeModified",
           },
           name = {
-            use_git_status_colors = false,
+            use_git_status_colors = true,
           },
           git_status = {
             symbols = {
-              added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+              added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+              modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
               deleted = "✖", -- this can only be used in the git_status source
               renamed = "", -- this can only be used in the git_status source
               -- Status type

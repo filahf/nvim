@@ -61,7 +61,18 @@ return {
           dim_backdrop = true,
         },
       })
-      vim.cmd("colorscheme nordic")
+      -- vim.cmd("colorscheme nordic")
+    end,
+  },
+  {
+    "mcchrish/zenbones.nvim",
+    lazy = false,
+    priority = 1000,
+    dependencies = { "rktjmp/lush.nvim" },
+    config = function()
+      vim.o.background = "light"
+      vim.o.termguicolors = true
+      vim.cmd("colorscheme zenbones")
     end,
   },
 }

@@ -1,13 +1,17 @@
 return {
+  { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
   {
-    'numToStr/Comment.nvim',
-    dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    opts = {
+      hooks = {
+        pre = function()
+          require("ts_context_commentstring.internal").update_commentstring({})
+        end,
+      },
     },
-    opts = function()
-      return {
-        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-      }
+    config = function(_, opts)
+      require("mini.comment").setup(opts)
     end,
   },
 }
