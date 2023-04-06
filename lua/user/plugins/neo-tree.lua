@@ -48,13 +48,25 @@ return {
           },
         },
         default_component_configs = {
+          modified = {
+            symbol = "[+]",
+            highlight = "NeoTreeModified",
+          },
+          name = {
+            use_git_status_colors = false,
+          },
           git_status = {
             symbols = {
-              untracked = "",
-              ignored = "",
-              unstaged = "",
-              staged = "",
-              conflict = "",
+              added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+              modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+              deleted = "✖", -- this can only be used in the git_status source
+              renamed = "", -- this can only be used in the git_status source
+              -- Status type
+              untracked = "",
+              ignored = "",
+              unstaged = "",
+              staged = "",
+              conflict = "",
             },
           },
         },

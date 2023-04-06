@@ -50,34 +50,6 @@ return {
     end,
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- vim.opt.background = "light"
-
-      require("rose-pine").setup({
-        highlight_groups = {
-          ColorColumn = { bg = "rose" },
-          MiniIndentscopeSymbol = { fg = "rose" },
-        },
-      })
-      -- vim.cmd("colorscheme rose-pine")
-    end,
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    name = "gruvbox",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- vim.opt.background = "light"
-
-      require("gruvbox").setup({})
-    end,
-  },
-  {
     "AlexvZyl/nordic.nvim",
     lazy = false,
     priority = 1000,
@@ -92,14 +64,4 @@ return {
       vim.cmd("colorscheme nordic")
     end,
   },
-  -- {
-  --   "projekt0n/github-nvim-theme",
-  --   branch = "0.0.x",
-  --   config = function()
-  --     require("github-theme").setup({
-  --       theme_style = "light",
-  --     })
-  --     -- vim.cmd("colorscheme github_light")
-  --   end,
-  -- },
 }
