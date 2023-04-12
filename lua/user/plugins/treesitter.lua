@@ -7,6 +7,7 @@ return {
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/playground",
         init = function()
           -- PERF: no need to load the plugin, if we only need its queries for mini.ai
           local plugin = require("lazy.core.config").spec.plugins["nvim-treesitter"]

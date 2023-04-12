@@ -73,6 +73,20 @@ return {
       vim.o.background = "light"
       vim.o.termguicolors = true
       vim.cmd("colorscheme zenbones")
+      local lush = require("lush")
+      local base = require("zenbones")
+      local green = lush.hsluv(120, 64, 61)
+
+      -- Create some specs
+      local specs = lush.parse(function(injected_functions)
+        local sym = injected_functions.sym
+        return {
+          sym("@string")({ base.String, fg = green, gui = "italic" }),
+        }
+      end)
+
+      -- Apply specs using lush tool-chain
+      lush.apply(lush.compile(specs))
     end,
   },
 }
