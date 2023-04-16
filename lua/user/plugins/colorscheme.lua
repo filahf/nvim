@@ -6,45 +6,6 @@ return {
       -- vim.opt.background = "dark"
       require("catppuccin").setup({
         flavour = "mocha", -- latte, frappe, macchiato, mocha
-        background = { -- :h background
-          light = "latte",
-          dark = "mocha",
-        },
-        transparent_background = true,
-        term_colors = false,
-        dim_inactive = {
-          enabled = false,
-          shade = "dark",
-          percentage = 0.15,
-        },
-        no_italic = false, -- Force no italic
-        no_bold = false, -- Force no bold
-        styles = {
-          comments = { "italic" },
-          conditionals = { "italic" },
-          loops = {},
-          functions = {},
-          keywords = {},
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-          operators = {},
-        },
-        color_overrides = {},
-        custom_highlights = {},
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          telescope = true,
-          notify = false,
-          mini = false,
-          illuminate = true,
-          -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-        },
       })
       -- vim.cmd("colorscheme catppuccin")
     end,
@@ -55,38 +16,73 @@ return {
     priority = 1000,
     config = function()
       require("nordic").setup({
-        transparent_bg = true,
+        -- transparent_bg = true,
+        bold_keywords = true,
+        override = {
+          ["@include"] = { fg = "#9D7495", bold = false },
+          ["@keyword.import"] = { fg = "#9D7495", bold = false },
+          ["@keyword.export"] = { fg = "#9D7495", bold = false },
+          Macro = {
+            fg = "#D08770",
+            bold = true,
+          },
+          Visual = {
+            bg = "#3A515D", -- Choose a color you like.,
+            bold = false, -- Or false.,
+          },
+        },
         leap = {
           -- Dims the backdrop when using leap.
           dim_backdrop = true,
         },
       })
-      -- vim.cmd("colorscheme nordic")
+      vim.api.nvim_set_hl(0, "@constant.falsy", { fg = "#BF616A" })
+      vim.cmd("colorscheme nordic")
     end,
   },
-  {
-    "mcchrish/zenbones.nvim",
-    lazy = false,
-    priority = 1000,
-    dependencies = { "rktjmp/lush.nvim" },
-    config = function()
-      vim.o.background = "light"
-      vim.o.termguicolors = true
-      vim.cmd("colorscheme zenbones")
-      local lush = require("lush")
-      local base = require("zenbones")
-      local green = lush.hsluv(120, 64, 61)
-
-      -- Create some specs
-      local specs = lush.parse(function(injected_functions)
-        local sym = injected_functions.sym
-        return {
-          sym("@string")({ base.String, fg = green, gui = "italic" }),
-        }
-      end)
-
-      -- Apply specs using lush tool-chain
-      lush.apply(lush.compile(specs))
-    end,
-  },
+  -- {
+  --   "mcchrish/zenbones.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   dependencies = { "rktjmp/lush.nvim", lazy = true },
+  --   config = function()
+  --     local opts = { lightness = "bright", darkness = "warm", solid_line_nr = true }
+  --     vim.g.zenbones = opts
+  --     vim.o.background = "light"
+  --     vim.o.termguicolors = true
+  --     vim.cmd("colorscheme zenbones")
+  --     local lush = require("lush")
+  --     local base = require("zenbones")
+  --     -- = '#1C1917'
+  --     local red = "#DE6E7C"
+  --     local green = "#819B69"
+  --     -- = '#B77E64'
+  --     local blue = "#6099C0"
+  --     -- = '#B279A7'
+  --     -- = '#66A5AD'
+  --     -- = '#B4BDC3'
+  --     -- = '#403833'
+  --     -- = '#E8838F'
+  --     --  = '#8BAE68'
+  --     -- local orange = "#D68C67"
+  --     --  = '#61ABDA'
+  --     --  = '#CF86C1'
+  --     --  = '#65B8C1'
+  --     --  = '#888F94'
+  --     -- Create some specs
+  --     local specs = lush.parse(function(injected_functions)
+  --       local sym = injected_functions.sym
+  --       return {
+  --         sym("@string")({ base.String, fg = green, gui = "italic" }),
+  --         -- sym("@type")({ base.Type, fg = orange, gui = "" }),
+  --         sym("@method.call")({ base.String, fg = blue, gui = "italic,bold" }),
+  --         sym("@constant.falsy")({ base.String, fg = red, gui = "bold" }),
+  --         -- sym("@function.call")({ base.String, fg = red, gui = "bold" }),
+  --       }
+  --     end)
+  --
+  --     -- Apply specs using lush tool-chain
+  --     lush.apply(lush.compile(specs))
+  --   end,
+  -- },
 }

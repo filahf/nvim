@@ -7,6 +7,7 @@ return {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
       "mason.nvim",
+      { "j-hui/fidget.nvim" },
       "jose-elias-alvarez/typescript.nvim",
       "williamboman/mason-lspconfig.nvim",
       {
@@ -19,9 +20,15 @@ return {
       diagnostics = {
         underline = true,
         update_in_insert = false,
-        virtual_text = { spacing = 4, prefix = "●" },
+        virtual_text = { spacing = 2, prefix = "●" },
+        virtual_lines = { only_current_line = true },
         severity_sort = true,
       },
+      float = {
+        border = "rounded",
+        source = "always",
+      },
+
       -- Automatically format on save
       autoformat = true,
       -- options for vim.lsp.buf.format
@@ -83,6 +90,10 @@ return {
     },
     ---@param opts PluginLspOpts
     config = function(_, opts)
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
+      vim.lsp.handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
       -- setup autoformat
       require("user.plugins.lsp.format").autoformat = opts.autoformat
       -- setup formatting and keymaps
@@ -139,30 +150,11 @@ return {
         end
       end
 
+      require("fidget").setup({})
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed })
         mlsp.setup_handlers({ setup })
       end
-    end,
-  },
-  {
-    "SmiteshP/nvim-navic",
-    lazy = true,
-    init = function()
-      vim.g.navic_silence = true
-      require("user.utils.lazy-utils").on_attach(function(client, buffer)
-        if client.server_capabilities.documentSymbolProvider then
-          require("nvim-navic").attach(client, buffer)
-        end
-      end)
-    end,
-    opts = function()
-      return {
-        separator = " ",
-        highlight = true,
-        depth_limit = 5,
-        icons = require("user.utils.icons").kinds,
-      }
     end,
   },
   {
