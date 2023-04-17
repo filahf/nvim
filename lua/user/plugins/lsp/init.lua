@@ -8,6 +8,7 @@ return {
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
       "mason.nvim",
       { "j-hui/fidget.nvim" },
+      { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
       "jose-elias-alvarez/typescript.nvim",
       "williamboman/mason-lspconfig.nvim",
       {
@@ -20,7 +21,8 @@ return {
       diagnostics = {
         underline = true,
         update_in_insert = false,
-        virtual_text = { spacing = 2, prefix = "●" },
+        -- virtual_text = { spacing = 2, prefix = "●" },
+        virtual_text = false,
         virtual_lines = { only_current_line = true },
         severity_sort = true,
       },
@@ -151,6 +153,7 @@ return {
       end
 
       require("fidget").setup({})
+      require("lsp_lines").setup()
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed })
         mlsp.setup_handlers({ setup })
