@@ -51,6 +51,7 @@
   "text-case.nvim": { "branch": "main", "commit": "cd7cc65a412beb713e68f3b84e45990a939b7b6b" },
   "todo-comments.nvim": { "branch": "main", "commit": "8febc60a76feefd8203077ef78b6a262ea1a41f9" },
   "toggleterm.nvim": { "branch": "main", "commit": "1c5996ee3c30b54751093fe68d40676859e7778f" },
+  "tsc.nvim": { "branch": "main", "commit": "80c1839071443a7139cd8e1c93c6f78e35e5cf8f" },
   "typescript.nvim": { "branch": "main", "commit": "f66d4472606cb24615dfb7dbc6557e779d177624" },
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
