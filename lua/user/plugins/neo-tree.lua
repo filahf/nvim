@@ -36,7 +36,7 @@ return {
               "thumbs.db",
             },
           },
-          follow_current_file = true,
+          follow_current_file = false,
           hijack_netrw_behavior = "open_default",
         },
         event_handlers = {
