@@ -16,7 +16,7 @@ return {
     priority = 1000,
     config = function()
       require("nordic").setup({
-        -- transparent_bg = true,
+        transparent_bg = true,
         bold_keywords = true,
         override = {
           ["@include"] = { fg = "#9D7495", bold = false },
