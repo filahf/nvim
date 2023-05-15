@@ -23,11 +23,4 @@ return {
       require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
-  {
-    "windwp/nvim-ts-autotag",
-    event = "BufEnter",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
 }

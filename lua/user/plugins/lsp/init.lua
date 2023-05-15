@@ -152,7 +152,12 @@ return {
         end
       end
 
-      require("fidget").setup({})
+      require("fidget").setup({
+        window = {
+          border = "none",
+          blend = 0,
+        },
+      })
       require("lsp_lines").setup()
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed })

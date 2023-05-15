@@ -36,17 +36,17 @@ return {
               "thumbs.db",
             },
           },
-          follow_current_file = false,
+          follow_current_file = true,
           hijack_netrw_behavior = "open_default",
         },
         event_handlers = {
-          {
-            event = "file_opened",
-            ---@diagnostic disable-next-line: unused-local
-            handler = function(file_path)
-              require("neo-tree").close_all()
-            end,
-          },
+          -- {
+          --   event = "file_opened",
+          --   ---@diagnostic disable-next-line: unused-local
+          --   handler = function(file_path)
+          --     require("neo-tree").close_all()
+          --   end,
+          -- },
         },
         default_component_configs = {
           modified = {

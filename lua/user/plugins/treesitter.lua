@@ -6,6 +6,7 @@ return {
     event = "BufReadPost",
     dependencies = {
       {
+        "windwp/nvim-ts-autotag",
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/playground",
         init = function()
@@ -32,6 +33,7 @@ return {
       { "<bs>", desc = "Schrink selection", mode = "x" },
     },
     opts = {
+      autotag = { enable = true },
       highlight = { enable = true },
       indent = { enable = true },
       context_commentstring = { enable = true, enable_autocmd = false },

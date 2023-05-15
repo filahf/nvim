@@ -62,6 +62,15 @@ return {
           "s",
         }),
       }),
+      window = {
+        documentation = {
+          border = "rounded",
+        },
+        completion = {
+          border = "rounded",
+        },
+      },
+      preselect = false,
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "copilot" },
