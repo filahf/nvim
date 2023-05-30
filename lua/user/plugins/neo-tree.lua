@@ -54,7 +54,7 @@ return {
             highlight = "NeoTreeModified",
           },
           name = {
-            use_git_status_colors = true,
+            use_git_status_colors = false,
           },
           git_status = {
             symbols = {
