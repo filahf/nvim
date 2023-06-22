@@ -7,7 +7,7 @@ return {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
       "mason.nvim",
-      { "j-hui/fidget.nvim" },
+      { "j-hui/fidget.nvim", tag = "legacy" },
       { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
       "jose-elias-alvarez/typescript.nvim",
       "williamboman/mason-lspconfig.nvim",
