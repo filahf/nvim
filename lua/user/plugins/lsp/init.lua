@@ -8,8 +8,7 @@ return {
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
       "mason.nvim",
       { "j-hui/fidget.nvim", tag = "legacy" },
-      { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
-      "jose-elias-alvarez/typescript.nvim",
+      -- "jose-elias-alvarez/typescript.nvim",
       "williamboman/mason-lspconfig.nvim",
       {
         "hrsh7th/cmp-nvim-lsp",
@@ -21,8 +20,7 @@ return {
       diagnostics = {
         underline = true,
         update_in_insert = false,
-        -- virtual_text = { spacing = 2, prefix = "●" },
-        virtual_text = false,
+        virtual_text = { spacing = 2, prefix = "●", only_current_line = true },
         virtual_lines = { only_current_line = true },
         severity_sort = true,
       },
@@ -40,18 +38,24 @@ return {
         formatting_options = nil,
         timeout_ms = nil,
       },
-      -- LSP Server Settings
-      ---@type lspconfig.options
       servers = {
         jsonls = {},
-        tsserver = {
-          settings = {
-            completions = { completeFunctionCalls = true },
-          },
-        },
         eslint = {
           settings = {
             workingDirectory = { mode = "auto" },
+          },
+        },
+        cssls = {
+          settings = {
+            css = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
+            scss = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
+            less = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
           },
         },
         lua_ls = {
@@ -80,11 +84,6 @@ return {
               end
             end,
           })
-        end,
-        -- example to setup with typescript.nvim
-        tsserver = function(_, opts)
-          require("typescript").setup({ server = opts })
-          return true
         end,
         -- Specify * to use this function as a fallback for any server
         -- ["*"] = function(server, opts) end,
@@ -158,12 +157,16 @@ return {
           blend = 0,
         },
       })
-      require("lsp_lines").setup()
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed })
         mlsp.setup_handlers({ setup })
       end
     end,
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
   },
   {
     "smjonas/inc-rename.nvim",
@@ -251,7 +254,7 @@ return {
           nls.builtins.diagnostics.fish,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.shfmt,
-          require("typescript.extensions.null-ls.code-actions"),
+          -- require("typescript.extensions.null-ls.code-actions"),
           nls.builtins.formatting.prettierd,
         },
       }

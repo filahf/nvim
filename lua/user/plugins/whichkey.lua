@@ -151,18 +151,17 @@ return {
       r = {
         name = "Rename",
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        R = { "<cmd>TypescriptRenameFile<cr>", "Rename TS file" },
+        -- TODO: Migrate to TSTools once ready
+        -- R = { "<cmd>TypescriptRenameFile<cr>", "Rename TS file" },
       },
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        A = { "<cmd>TSToolsFixAll<cr>", "Fix All" },
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-        d = { "<cmd>TypescriptGoToSourceDefinition<cr>", "Go to TS definition" },
-        i = { "<cmd>TypescriptAddMissingImports<cr>", "Import missing imports" },
-        o = {
-          "<cmd>lua vim.lsp.buf.execute_command({command = '_typescript.organizeImports', arguments = {vim.fn.expand('%:p')}})<cr>",
-          "Organize Imports",
-        },
+        d = { "<cmd>TSToolsGoToSourceDefinition<cr>", "Go to TS definition" },
+        i = { "<cmd>TSToolsAddMissingImports<cr>", "Import missing imports" },
+        o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize Imports" },
         r = { "<cmd>Telescope lsp_references<cr>", "References" },
       },
       s = {
