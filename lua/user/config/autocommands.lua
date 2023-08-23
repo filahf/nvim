@@ -56,6 +56,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = { "*.conf", "*.env.*", "*.env" },
+  callback = function()
+    vim.cmd("setfiletype  dosini")
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
     vim.cmd("tabdo wincmd =")

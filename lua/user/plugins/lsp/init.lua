@@ -8,7 +8,6 @@ return {
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
       "mason.nvim",
       { "j-hui/fidget.nvim", tag = "legacy" },
-      -- "jose-elias-alvarez/typescript.nvim",
       "williamboman/mason-lspconfig.nvim",
       {
         "hrsh7th/cmp-nvim-lsp",
