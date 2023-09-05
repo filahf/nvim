@@ -5,6 +5,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+      "s1n7ax/nvim-window-picker",
     },
     cmd = "Neotree",
     config = function()
@@ -19,6 +20,7 @@ return {
             ["H"] = "navigate_up",
             ["."] = "toggle_hidden",
             ["<C-c>"] = "close_window",
+            ["<CR>"] = "open_with_window_picker",
           },
         },
         filesystem = {
