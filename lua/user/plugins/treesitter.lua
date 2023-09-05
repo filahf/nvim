@@ -6,7 +6,6 @@ return {
     event = "BufReadPost",
     dependencies = {
       {
-        "windwp/nvim-ts-autotag",
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/playground",
         init = function()
@@ -36,7 +35,7 @@ return {
       autotag = { enable = true },
       highlight = { enable = true },
       indent = { enable = true },
-      context_commentstring = { enable = true, enable_autocmd = false },
+      context_commentstring = { enable = true },
       ensure_installed = {
         "bash",
         "c",
@@ -69,5 +68,16 @@ return {
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-ts-autotag").setup({
+        -- your config
+      })
+    end,
+    lazy = true,
+    event = "VeryLazy",
   },
 }

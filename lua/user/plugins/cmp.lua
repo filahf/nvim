@@ -6,12 +6,13 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "onsails/lspkind-nvim",
     "saadparwaiz1/cmp_luasnip",
   },
   opts = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
-    local kind_icons = require("user.utils.icons").kinds
+    local lspkind = require("lspkind")
 
     local check_backspace = function()
       local col = vim.fn.col(".") - 1
@@ -20,7 +21,8 @@ return {
 
     return {
       completion = {
-        completeopt = "menu,menuone,noinsert",
+        keyword_length = 1,
+        completeopt = "menu,noselect",
       },
       snippet = {
         expand = function(args)
@@ -75,21 +77,25 @@ return {
         { name = "nvim_lsp" },
         { name = "copilot" },
         { name = "luasnip" },
-        { name = "buffer" },
+        { name = "buffer", keyword_length = 2 },
         { name = "path" },
       }),
-      formatting = {
-        format = function(_, item)
-          if kind_icons[item.kind] then
-            item.kind = kind_icons[item.kind] .. item.kind
-          end
-          return item
-        end,
+      view = {
+        entries = "custom",
       },
-      experimental = {
-        ghost_text = {
-          hl_group = "LspCodeLens",
-        },
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          menu = {
+            nvim_lsp = "[LSP]",
+            ultisnips = "[US]",
+            nvim_lua = "[Lua]",
+            path = "[Path]",
+            buffer = "[Buffer]",
+            emoji = "[Emoji]",
+            omni = "[Omni]",
+          },
+        }),
       },
     }
   end,

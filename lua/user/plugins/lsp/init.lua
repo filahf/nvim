@@ -9,9 +9,7 @@ return {
       "mason.nvim",
       { "j-hui/fidget.nvim", tag = "legacy" },
       "williamboman/mason-lspconfig.nvim",
-      {
-        "hrsh7th/cmp-nvim-lsp",
-      },
+      { "hrsh7th/cmp-nvim-lsp" },
     },
     ---@class PluginLspOpts
     opts = {
@@ -27,7 +25,7 @@ return {
         border = "rounded",
         source = "always",
       },
-
+      inlay_hints = { enabled = true },
       -- Automatically format on save
       autoformat = true,
       -- options for vim.lsp.buf.format
@@ -253,7 +251,6 @@ return {
           nls.builtins.diagnostics.fish,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.shfmt,
-          -- require("typescript.extensions.null-ls.code-actions"),
           nls.builtins.formatting.prettierd,
         },
       }
