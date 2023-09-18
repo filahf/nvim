@@ -40,49 +40,4 @@ return {
       vim.cmd("colorscheme nordic")
     end,
   },
-  -- {
-  --   "mcchrish/zenbones.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   dependencies = { "rktjmp/lush.nvim", lazy = true },
-  --   config = function()
-  --     local opts = { lightness = "bright", darkness = "warm", solid_line_nr = true }
-  --     vim.g.zenbones = opts
-  --     vim.o.background = "light"
-  --     vim.o.termguicolors = true
-  --     vim.cmd("colorscheme zenbones")
-  --     local lush = require("lush")
-  --     local base = require("zenbones")
-  --     -- = '#1C1917'
-  --     local red = "#DE6E7C"
-  --     local green = "#819B69"
-  --     -- = '#B77E64'
-  --     local blue = "#6099C0"
-  --     -- = '#B279A7'
-  --     -- = '#66A5AD'
-  --     -- = '#B4BDC3'
-  --     -- = '#403833'
-  --     -- = '#E8838F'
-  --     --  = '#8BAE68'
-  --     -- local orange = "#D68C67"
-  --     --  = '#61ABDA'
-  --     --  = '#CF86C1'
-  --     --  = '#65B8C1'
-  --     --  = '#888F94'
-  --     -- Create some specs
-  --     local specs = lush.parse(function(injected_functions)
-  --       local sym = injected_functions.sym
-  --       return {
-  --         sym("@string")({ base.String, fg = green, gui = "italic" }),
-  --         -- sym("@type")({ base.Type, fg = orange, gui = "" }),
-  --         sym("@method.call")({ base.String, fg = blue, gui = "italic,bold" }),
-  --         sym("@constant.falsy")({ base.String, fg = red, gui = "bold" }),
-  --         -- sym("@function.call")({ base.String, fg = red, gui = "bold" }),
-  --       }
-  --     end)
-  --
-  --     -- Apply specs using lush tool-chain
-  --     lush.apply(lush.compile(specs))
-  --   end,
-  -- },
 }

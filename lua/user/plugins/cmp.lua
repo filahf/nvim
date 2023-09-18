@@ -75,7 +75,6 @@ return {
       preselect = false,
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "copilot" },
         { name = "luasnip" },
         { name = "buffer", keyword_length = 2 },
         { name = "path" },
