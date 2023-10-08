@@ -148,16 +148,17 @@ return {
         end
       end
 
+      if have_mason then
+        mlsp.setup({ ensure_installed = ensure_installed })
+        mlsp.setup_handlers({ setup })
+      end
+      -- Lsp status indicator
       require("fidget").setup({
         window = {
           border = "none",
           blend = 0,
         },
       })
-      if have_mason then
-        mlsp.setup({ ensure_installed = ensure_installed })
-        mlsp.setup_handlers({ setup })
-      end
     end,
   },
   {
