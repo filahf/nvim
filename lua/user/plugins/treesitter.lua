@@ -80,4 +80,7 @@ return {
     lazy = true,
     event = "VeryLazy",
   },
+  {
+    "imsnif/kdl.vim",
+  },
 }
