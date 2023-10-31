@@ -2,13 +2,19 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPost",
-    opts = {
-      -- char = "▏",
-      char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
-    },
+    main = "ibl",
+    config = function()
+      require("ibl").setup({
+        indent = {
+          char = "│",
+          smart_indent_cap = true,
+        },
+        scope = { enabled = false },
+        exclude = {
+          filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+        },
+      })
+    end,
   },
   {
     "echasnovski/mini.indentscope",
