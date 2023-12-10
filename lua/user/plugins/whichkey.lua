@@ -79,81 +79,23 @@ return {
     }
 
     local mappings = {
-      ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-      ["b"] = {
+      a = { "<cmd>Alpha<cr>", "Alpha" },
+      b = {
         name = "Buffers",
-        ["p"] = { "<cmd>BufferLineTogglePin<cr>", "Toggle pin" },
-        ["P"] = { "<Cmd>BufferLineGroupClose ungrouped<CR>", "Close non-pinned" },
-        ["e"] = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
-        ["l"] = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },
-        ["s"] = {
+        e = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
+        l = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },
+        s = {
           "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
           "Search buffer",
         },
-        ["x"] = { "<cmd>BufferLineCloseRight<cr>", "Close Buffers to the Right" },
-        ["X"] = { "<cmd>BufferLineCloseLeft<cr>", "Close Buffers to the Left" },
+        x = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other buffers" },
       },
-      ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
-      ["w"] = { "<cmd>w!<CR>", "Save" },
-      ["W"] = { "<cmd>noa w!<CR>", "Save without format" },
-      ["q"] = { "<cmd>q!<CR>", "Quit" },
-      ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-      -- ["t"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Terminal" },
-      c = {
-        name = "Change Text Case",
-        ["u"] = { "<cmd>lua require('textcase').current_word('to_upper_case')<cr>", "UPPERCASE" },
-        ["l"] = { "<cmd>lua require('textcase').current_word('to_lower_case')<cr>", "lowercase" },
-        ["c"] = { "<cmd>lua require('textcase').current_word('to_camel_case')<cr>", "camelCase" },
-        ["s"] = { "<cmd>lua require('textcase').current_word('to_snake_case')<cr>", "snake_case" },
-        ["k"] = { "<cmd>lua require('textcase').current_word('to_dash_case')<cr>", "kebab-case" },
-        ["p"] = { "<cmd>lua require('textcase').current_word('to_pascal_case')<cr>", "PascalCase" },
-        ["x"] = { "<cmd>lua require('textcase').current_word('to_constant_case')<cr>", "CONSTANT_CASE" },
-        ["t"] = { "<cmd>lua require('textcase').current_word('to_title_case')<cr>", "Title Case" },
-        ["U"] = { "<cmd>lua require('textcase').lsp_rename('to_upper_case')<CR>", "LSP UPPERCASE" },
-        ["L"] = { "<cmd>lua require('textcase').lsp_rename('to_lower_case')<cr>", "LSP lowercase" },
-        ["C"] = { "<cmd>lua require('textcase').lsp_rename('to_camel_case')<cr>", "LSP camelCase" },
-        ["S"] = { "<cmd>lua require('textcase').lsp_rename('to_snake_case')<cr>", "LSP snake_case" },
-        ["K"] = { "<cmd>lua require('textcase').lsp_rename('to_dash_case')<cr>", "LSP kebab-case" },
-        ["P"] = { "<cmd>lua require('textcase').lsp_rename('to_pascal_case')<cr>", "LSP PascalCase" },
-        ["X"] = { "<cmd>lua require('textcase').lsp_rename('to_constant_case')<cr>", "CONSTANT_CASE" },
-        ["T"] = { "<cmd>lua require('textcase').lsp_rename('to_title_case')<cr>", "LSP Title Case" },
-      },
-      t = {
-        name = "Trouble",
-        ["t"] = { "<cmd>TroubleToggle<cr>", "Toggle diagnostics" },
-        ["w"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
-        ["d"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
-        ["q"] = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix items" },
-        ["l"] = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-      },
+      e = { "<cmd>Neotree toggle<cr>", "Explorer" },
       g = {
         name = "Git",
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-        j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-        k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-        l = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", "Blame" },
-        p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-        u = {
-          "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-          "Undo Stage Hunk",
-        },
-        o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-        d = {
-          "<cmd>Gitsigns diffthis HEAD<cr>",
-          "Diff",
-        },
       },
-      r = {
-        name = "Rename",
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        -- TODO: Migrate to TSTools once ready
-        -- R = { "<cmd>TypescriptRenameFile<cr>", "Rename TS file" },
-      },
+      h = { "<cmd>nohlsearch<CR>", "No Highlight" },
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -163,6 +105,17 @@ return {
         i = { "<cmd>TSToolsAddMissingImports<cr>", "Import missing imports" },
         o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize Imports" },
         r = { "<cmd>Telescope lsp_references<cr>", "References" },
+      },
+      m = {
+        name = "Minimap",
+        m = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap toggle" },
+        r = { "<cmd>lua MiniMap.refresh()<cr>", "Minimap refresh" },
+      },
+      q = { "<cmd>q!<CR>", "Quit" },
+      r = {
+        name = "Rename",
+        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        R = { "<cmd>TSToolsRenameFile<cr>", "Rename TS file" },
       },
       s = {
         name = "Search",
@@ -175,6 +128,8 @@ return {
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
       },
+      w = { "<cmd>w!<CR>", "Save" },
+      W = { "<cmd>noa w!<CR>", "Save without format" },
     }
 
     wk.setup(setup)

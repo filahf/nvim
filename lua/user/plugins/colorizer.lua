@@ -1,6 +1,5 @@
 return {
   "NvChad/nvim-colorizer.lua",
-  dependencies = { "zbirenbaum/copilot.lua" },
   config = function()
     require("colorizer").setup({
       filetypes = { "*" },

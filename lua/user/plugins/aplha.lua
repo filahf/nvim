@@ -63,7 +63,7 @@ return {
           dashboard.button("c 1", "  nvim", ":cd ~/.config/nvim/<CR> :e init.lua<CR>"),
           dashboard.button("c 2", "  hyprland", ":cd ~/.config/hypr/<CR> :e hyprland.conf<CR>"),
           dashboard.button("c 3", "  waybar", ":cd ~/.config/waybar/<CR> :e config<CR>"),
-          dashboard.button("c 4", "  kitty", ":e ~/.config/kitty/kitty.conf<CR>"),
+          dashboard.button("c 4", "  foot", ":cd ~/.config/foot/<CR> :e foot.ini<CR>"),
           { type = "padding", val = 1 },
           { type = "text", val = subtitle, opts = { hl = hl3, position = "center" } },
         },

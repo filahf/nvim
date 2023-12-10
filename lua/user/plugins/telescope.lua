@@ -16,13 +16,6 @@ return {
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "smart" },
-        mappings = {
-          i = {
-            ["<c-t>"] = function(...)
-              return require("trouble.providers.telescope").open_selected_with_trouble(...)
-            end,
-          },
-        },
       },
       extensions = {
         live_grep_args = {

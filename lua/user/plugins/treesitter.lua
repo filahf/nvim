@@ -8,6 +8,7 @@ return {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/playground",
+        "windwp/nvim-ts-autotag",
         init = function()
           -- PERF: no need to load the plugin, if we only need its queries for mini.ai
           local plugin = require("lazy.core.config").spec.plugins["nvim-treesitter"]
@@ -27,15 +28,10 @@ return {
         end,
       },
     },
-    keys = {
-      { "<c-space>", desc = "Increment selection" },
-      { "<bs>", desc = "Schrink selection", mode = "x" },
-    },
     opts = {
-      autotag = { enable = true },
+      autotag = { enable = true, enable_close_on_slash = false },
       highlight = { enable = true },
       indent = { enable = true },
-      context_commentstring = { enable = true },
       ensure_installed = {
         "bash",
         "c",
@@ -55,32 +51,9 @@ return {
         "vim",
         "yaml",
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = "<nop>",
-          node_decremental = "<bs>",
-        },
-      },
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("nvim-ts-autotag").setup({
-        -- your config
-      })
-    end,
-    lazy = true,
-    event = "VeryLazy",
-  },
-  {
-    "imsnif/kdl.vim",
   },
 }

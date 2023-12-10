@@ -60,9 +60,9 @@ keymap(
   "<C-p>",
   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
 )
-keymap("n", "<C-o>", "<cmd>lua require('telescope').extensions.projects.projects()<cr>")
 
 keymap("n", "<C-f>", "<cmd>Telescope live_grep_args theme=ivy<cr>")
+keymap("n", "<C-S-f>", "<cmd>Telescope resume<cr>")
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
