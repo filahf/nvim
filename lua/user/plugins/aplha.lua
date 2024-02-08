@@ -1,7 +1,6 @@
 return {
   "goolord/alpha-nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  lazy = false, -- make sure we load this during startup if it is your main colorscheme
   priority = 1000,
   config = function()
     local alpha = require("alpha")
@@ -34,11 +33,6 @@ return {
       val = {
         dashboard.button("n", " " .. " new file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("r", " " .. " recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button(
-          "p",
-          " " .. " find project",
-          ":lua require('telescope').extensions.projects.projects()<CR>"
-        ),
         dashboard.button("f", " " .. " find file", ":Telescope find_files <CR>"),
         dashboard.button("t", " " .. " find text", ":Telescope live_grep <CR>"),
         dashboard.button("F", " " .. " find and replace", ":lua require('spectre').open()<CR>"),
@@ -50,11 +44,6 @@ return {
     }
 
     local function config_section()
-      local subtitle = " "
-      local modified_dotfiles = require("user.utils.dotfile-utils").modified_dotfiles()
-      if tonumber(modified_dotfiles) ~= 0 then
-        subtitle = " You have " .. modified_dotfiles .. "unsynchronized dotfile(s)"
-      end
       return {
         type = "group",
         val = {
@@ -64,8 +53,6 @@ return {
           dashboard.button("c 2", "  sway", ":cd ~/.config/sway/<CR> :e config<CR>"),
           dashboard.button("c 3", "  waybar", ":cd ~/.config/waybar/<CR> :e config<CR>"),
           dashboard.button("c 4", "  foot", ":cd ~/.config/foot/<CR> :e foot.ini<CR>"),
-          { type = "padding", val = 1 },
-          { type = "text", val = subtitle, opts = { hl = hl3, position = "center" } },
         },
         opts = {
           position = "center",
