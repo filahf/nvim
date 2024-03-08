@@ -21,10 +21,6 @@ return {
         virtual_lines = { only_current_line = true },
         severity_sort = true,
       },
-      float = {
-        border = "rounded",
-        source = "always",
-      },
       inlay_hints = { enabled = true },
       -- Automatically format on save
       autoformat = true,
@@ -160,11 +156,6 @@ return {
         },
       })
     end,
-  },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
   },
   {
     "smjonas/inc-rename.nvim",
