@@ -114,7 +114,6 @@ return {
       q = { "<cmd>q!<CR>", "Quit" },
       r = {
         name = "Rename",
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         R = { "<cmd>TSToolsRenameFile<cr>", "Rename TS file" },
       },
       s = {

@@ -57,7 +57,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
-      local icons = require("user.utils.icons")
+      local icons = require("utils.icons")
 
       return {
         options = {

@@ -6,10 +6,10 @@ return {
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-      "mason.nvim",
       { "j-hui/fidget.nvim", tag = "legacy" },
+      "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      { "hrsh7th/cmp-nvim-lsp" },
+      "hrsh7th/cmp-nvim-lsp",
     },
     ---@class PluginLspOpts
     opts = {
@@ -89,16 +89,16 @@ return {
       vim.lsp.handlers["textDocument/signatureHelp"] =
         vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
       -- setup autoformat
-      require("user.plugins.lsp.format").autoformat = opts.autoformat
+      require("plugins.lsp.format").autoformat = opts.autoformat
       -- setup formatting and keymaps
-      require("user.utils.lazy-utils").on_attach(function(client, buffer)
-        require("user.plugins.lsp.format").on_attach(client, buffer)
-        local keymaps = require("user.plugins.lsp.keymaps")
+      require("utils.lazy-utils").on_attach(function(client, buffer)
+        require("plugins.lsp.format").on_attach(client, buffer)
+        local keymaps = require("plugins.lsp.keymaps")
         keymaps(buffer)
       end)
 
       -- diagnostics
-      for name, icon in pairs(require("user.utils.icons").diagnostics) do
+      for name, icon in pairs(require("utils.icons").diagnostics) do
         name = "DiagnosticSign" .. name
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
@@ -161,7 +161,10 @@ return {
     "smjonas/inc-rename.nvim",
     event = "VeryLazy",
     config = function()
-      require("inc_rename").setup()
+      require("inc_rename").setup({
+        input_buffer_type = "dressing",
+      })
+      vim.keymap.set("n", "<leader>rr", ":IncRename ")
     end,
   },
   {
@@ -248,7 +251,15 @@ return {
       }
     end,
   },
-
+  {
+    "kosayoda/nvim-lightbulb",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-lightbulb").setup({
+        autocmd = { enabled = true },
+      })
+    end,
+  },
   -- cmdline tools and lsp servers
   {
 

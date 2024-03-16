@@ -4,13 +4,13 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-live-grep-args.nvim",
     "folke/trouble.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   event = "VeryLazy",
   config = function()
     local lga_actions = require("telescope-live-grep-args.actions")
     local telescope = require("telescope")
 
-    telescope.load_extension("live_grep_args")
     telescope.setup({
       defaults = {
         prompt_prefix = " ",
@@ -23,6 +23,11 @@ return {
         },
       },
       extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({
+            -- even more opts
+          }),
+        },
         live_grep_args = {
           auto_quoting = true, -- enable/disable auto-quoting
           -- define mappings, e.g.
@@ -39,5 +44,7 @@ return {
         },
       },
     })
+    telescope.load_extension("live_grep_args")
+    telescope.load_extension("ui-select")
   end,
 }
