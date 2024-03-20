@@ -93,7 +93,7 @@ return {
       e = { "<cmd>Neotree toggle<cr>", "Explorer" },
       g = {
         name = "Git",
-        g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+        g = { "<cmd>LazyGit<CR>", "Lazygit" },
       },
       h = { "<cmd>nohlsearch<CR>", "No Highlight" },
       l = {
@@ -106,16 +106,12 @@ return {
         o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize Imports" },
         r = { "<cmd>Telescope lsp_references<cr>", "References" },
       },
-      m = {
-        name = "Minimap",
-        m = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap toggle" },
-        r = { "<cmd>lua MiniMap.refresh()<cr>", "Minimap refresh" },
-      },
       q = { "<cmd>q!<CR>", "Quit" },
       r = {
         name = "Rename",
         R = { "<cmd>TSToolsRenameFile<cr>", "Rename TS file" },
       },
+      i = { "<cmd> lua require('utils.lazy-utils').inlay_hints()<CR>", "No Highlight" },
       s = {
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },

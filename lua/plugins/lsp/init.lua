@@ -21,7 +21,6 @@ return {
         virtual_lines = { only_current_line = true },
         severity_sort = true,
       },
-      inlay_hints = { enabled = true },
       -- Automatically format on save
       autoformat = true,
       -- options for vim.lsp.buf.format
@@ -96,6 +95,13 @@ return {
         local keymaps = require("plugins.lsp.keymaps")
         keymaps(buffer)
       end)
+
+      --inlay_hints
+      -- require("utils.lazy-utils").on_attach(function(client, buffer)
+      --   if client.supports_method("textDocument/inlayHint") then
+      --     require("utils.lazy-utils").inlay_hints(buffer, true)
+      --   end
+      -- end)
 
       -- diagnostics
       for name, icon in pairs(require("utils.icons").diagnostics) do
