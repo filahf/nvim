@@ -38,3 +38,4 @@ vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.shell = "/usr/bin/fish"
+vim.opt.fillchars = { eob = " " }
