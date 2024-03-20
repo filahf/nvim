@@ -7,7 +7,6 @@ return {
     local dashboard = require("alpha.themes.dashboard")
     local hl1 = "String"
     local hl2 = "Label"
-    local hl3 = "Type"
 
     local default = {
       [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
@@ -33,8 +32,6 @@ return {
       val = {
         dashboard.button("n", " " .. " new file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("r", " " .. " recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("f", " " .. " find file", ":Telescope find_files <CR>"),
-        dashboard.button("t", " " .. " find text", ":Telescope live_grep <CR>"),
         dashboard.button("F", " " .. " find and replace", ":lua require('spectre').open()<CR>"),
       },
       opts = {
@@ -51,7 +48,7 @@ return {
           dashboard.button("c", "  lazydotfiles", "<cmd>lua _LAZYGIT_DOTFILES_TOGGLE()<CR>"),
           dashboard.button("c 1", "  nvim", ":cd ~/.config/nvim/<CR> :e init.lua<CR>"),
           dashboard.button("c 2", "  sway", ":cd ~/.config/sway/<CR> :e config<CR>"),
-          dashboard.button("c 3", "  waybar", ":cd ~/.config/waybar/<CR> :e config<CR>"),
+          dashboard.button("c 3", "  waybar", ":cd ~/.config/waybar/<CR> :e config.jsonc<CR>"),
           dashboard.button("c 4", "  foot", ":cd ~/.config/foot/<CR> :e foot.ini<CR>"),
         },
         opts = {
@@ -73,9 +70,9 @@ return {
 
     local config = {
       layout = {
-        { type = "padding", val = 1 },
+        { type = "padding", val = 5 },
         header,
-        { type = "padding", val = 1 },
+        { type = "padding", val = 2 },
         quick_link_btns,
         { type = "padding", val = 1 },
         misc_btns,
