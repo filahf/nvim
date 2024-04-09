@@ -45,7 +45,6 @@ return {
         type = "group",
         val = {
           { type = "text", val = "config", opts = { hl = hl1, position = "center" } },
-          dashboard.button("c", "  lazydotfiles", "<cmd>lua _LAZYGIT_DOTFILES_TOGGLE()<CR>"),
           dashboard.button("c 1", "  nvim", ":cd ~/.config/nvim/<CR> :e init.lua<CR>"),
           dashboard.button("c 2", "  sway", ":cd ~/.config/sway/<CR> :e config<CR>"),
           dashboard.button("c 3", "  waybar", ":cd ~/.config/waybar/<CR> :e config.jsonc<CR>"),
