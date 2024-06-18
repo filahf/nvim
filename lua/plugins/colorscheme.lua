@@ -112,9 +112,10 @@ return {
         overwrite = {
           colors = {},
           highlights = {
+            GitSignsCurrentLineBlame = { fg = "#BF616A", bold = false },
             ["@include"] = { fg = "#9D7495", bold = false },
             ["@keyword.import"] = { fg = "#9D7495", bold = false },
-            ["@keyword.export"] = { fg = "#9D7495", bold = false },
+            ["@keyword.export"] = { fg = "#9D7495", bold = true },
             ["@constant.falsy"] = { fg = "#BF616A", bold = false },
           },
         },

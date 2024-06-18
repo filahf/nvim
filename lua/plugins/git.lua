@@ -3,6 +3,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     config = function()
+      vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#9D7495", bold = false, italic = true })
       require("gitsigns").setup({
         signs = {
           add = { text = "│" },
