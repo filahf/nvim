@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-live-grep-args.nvim",
-    "folke/trouble.nvim",
+    -- "folke/trouble.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
   },
   event = "VeryLazy",

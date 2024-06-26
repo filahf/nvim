@@ -16,6 +16,7 @@ Open `nvim` and enter the following:
 
 ```sh
 yay -S wl-clipboard ripgrep
+npm i -g @styled/typescript-styled-plugin typescript-styled-plugin
 
 ```
 
