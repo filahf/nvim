@@ -1,14 +1,5 @@
 return {
   {
-    "s1n7ax/nvim-window-picker",
-    name = "window-picker",
-    event = "VeryLazy",
-    version = "2.*",
-    config = function()
-      require("window-picker").setup()
-    end,
-  },
-  {
     "stevearc/dressing.nvim",
     lazy = true,
     init = function()
@@ -97,7 +88,6 @@ return {
             },
           },
           lualine_y = {
-            { "progress", separator = "", padding = { left = 1, right = 0 } },
             { "location", padding = { left = 0, right = 1 } },
           },
           lualine_z = {
@@ -108,6 +98,22 @@ return {
         },
         extensions = { "neo-tree" },
       }
+    end,
+  },
+  {
+    "echasnovski/mini.icons",
+    opts = {},
+    lazy = true,
+    specs = {
+      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+    },
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        -- needed since it will be false when loading and mini will fail
+        package.loaded["nvim-web-devicons"] = {}
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
     end,
   },
 }

@@ -56,7 +56,7 @@ return {
         align = "left", -- align columns left, center or right
       },
       ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-      hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+      -- hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
       show_help = true, -- show help message on the command line when the popup is visible
       triggers = "auto", -- automatically setup triggers
       -- triggers = {"<leader>"} -- or specify a list manually
@@ -79,55 +79,78 @@ return {
     }
 
     local mappings = {
-      a = { "<cmd>Alpha<cr>", "Alpha" },
-      b = {
-        name = "Buffers",
-        e = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
-        l = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },
-        s = {
-          "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-          "Search buffer",
-        },
-        x = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other buffers" },
+      { "<leader>W", "<cmd>noa w!<CR>", desc = "Save without format", nowait = true, remap = false },
+      { "<leader>a", "<cmd>Alpha<cr>", desc = "Alpha", nowait = true, remap = false },
+      { "<leader>b", group = "Buffers", nowait = true, remap = false },
+      { "<leader>be", "<cmd>BufferLineSortByExtension<cr>", desc = "Sort by Extension", nowait = true, remap = false },
+      { "<leader>bl", "<cmd>BufferLineSortByDirectory<cr>", desc = "Sort by Directory", nowait = true, remap = false },
+      {
+        "<leader>bs",
+        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+        desc = "Search buffer",
+        nowait = true,
+        remap = false,
       },
-      e = { "<cmd>Neotree toggle<cr>", "Explorer" },
-      g = {
-        name = "Git",
-        g = { "<cmd>LazyGit<CR>", "Lazygit" },
+      {
+        "<leader>bx",
+        "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>",
+        desc = "Close other buffers",
+        nowait = true,
+        remap = false,
       },
-      h = { "<cmd>nohlsearch<CR>", "No Highlight" },
-      l = {
-        name = "LSP",
-        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        A = { "<cmd>TSToolsFixAll<cr>", "Fix All" },
-        f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-        d = { "<cmd>TSToolsGoToSourceDefinition<cr>", "Go to TS definition" },
-        i = { "<cmd>TSToolsAddMissingImports<cr>", "Import missing imports" },
-        o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize Imports" },
-        r = { "<cmd>Telescope lsp_references<cr>", "References" },
+      { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Explorer", nowait = true, remap = false },
+      { "<leader>g", group = "Git", nowait = true, remap = false },
+      { "<leader>gg", "<cmd>LazyGit<CR>", desc = "Lazygit", nowait = true, remap = false },
+      { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", nowait = true, remap = false },
+      {
+        "<leader>i",
+        "<cmd> lua require('utils.lazy-utils').inlay_hints()<CR>",
+        desc = "inlay hints",
+        nowait = true,
+        remap = false,
       },
-      q = { "<cmd>q!<CR>", "Quit" },
-      r = {
-        name = "Rename",
-        R = { "<cmd>TSToolsRenameFile<cr>", "Rename TS file" },
+      { "<leader>l", group = "LSP", nowait = true, remap = false },
+      { "<leader>lA", "<cmd>TSToolsFixAll<cr>", desc = "Fix All", nowait = true, remap = false },
+      { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
+      {
+        "<leader>ld",
+        "<cmd>TSToolsGoToSourceDefinition<cr>",
+        desc = "Go to TS definition",
+        nowait = true,
+        remap = false,
       },
-      i = { "<cmd> lua require('utils.lazy-utils').inlay_hints()<CR>", "No Highlight" },
-      s = {
-        name = "Search",
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-        R = { "<cmd>Telescope registers<cr>", "Registers" },
-        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        C = { "<cmd>Telescope commands<cr>", "Commands" },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+      { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format", nowait = true, remap = false },
+      {
+        "<leader>li",
+        "<cmd>TSToolsAddMissingImports<cr>",
+        desc = "Import missing imports",
+        nowait = true,
+        remap = false,
       },
-      w = { "<cmd>w!<CR>", "Save" },
-      W = { "<cmd>noa w!<CR>", "Save without format" },
+      { "<leader>lo", "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize Imports", nowait = true, remap = false },
+      { "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "References", nowait = true, remap = false },
+      { "<leader>q", "<cmd>q!<CR>", desc = "Quit", nowait = true, remap = false },
+      { "<leader>r", group = "Rename", nowait = true, remap = false },
+      { "<leader>rR", "<cmd>TSToolsRenameFile<cr>", desc = "Rename TS file", nowait = true, remap = false },
+      { "<leader>s", group = "Search", nowait = true, remap = false },
+      { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
+      { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages", nowait = true, remap = false },
+      { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers", nowait = true, remap = false },
+      { "<leader>sb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", nowait = true, remap = false },
+      { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
+      { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
+      { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
+      {
+        "<leader>ss",
+        "<cmd>Telescope lsp_document_symbols<cr>",
+        desc = "Document Symbols",
+        nowait = true,
+        remap = false,
+      },
+      { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
     }
 
-    wk.setup(setup)
-    wk.register(mappings, opts)
+    -- wk.setup(setup)
+    wk.add(mappings)
   end,
 }

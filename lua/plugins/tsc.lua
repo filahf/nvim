@@ -4,7 +4,7 @@ return {
     dependencies = { "rcarriga/nvim-notify" },
     event = "VeryLazy",
     config = function()
-      require("tsc").setup()
+      require("tsc").setup({ run_as_monorepo = true })
     end,
   },
   {
