@@ -66,7 +66,7 @@ keymap("n", "<C-f>", "<cmd>Telescope live_grep_args theme=ivy<cr>")
 keymap("n", "<C-S-f>", "<cmd>Telescope resume<cr>")
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":Neotree toggle reveal<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
