@@ -48,6 +48,8 @@ return {
         "regex",
         "tsx",
         "typescript",
+        "css",
+        "styled",
         "vim",
         "yaml",
       },

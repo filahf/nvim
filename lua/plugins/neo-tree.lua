@@ -8,6 +8,17 @@ return {
       "s1n7ax/nvim-window-picker",
     },
     cmd = "Neotree",
+    opts = function(_, opts)
+      local function on_move(data)
+        Snacks.rename.on_rename_file(data.source, data.destination)
+      end
+      local events = require("neo-tree.events")
+      opts.event_handlers = opts.event_handlers or {}
+      vim.list_extend(opts.event_handlers, {
+        { event = events.FILE_MOVED, handler = on_move },
+        { event = events.FILE_RENAMED, handler = on_move },
+      })
+    end,
     config = function()
       vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
       vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })

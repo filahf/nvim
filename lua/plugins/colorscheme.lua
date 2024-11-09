@@ -5,9 +5,9 @@ return {
     priority = 1000,
     config = function()
       require("nordic").setup({
-        -- transparent_bg = true,
+        transparent = true,
         bold_keywords = true,
-        override = {
+        on_hightlight = {
           ["@include"] = { fg = "#9D7495", bold = false },
           ["@keyword.import"] = { fg = "#9D7495", bold = false },
           ["@keyword.export"] = { fg = "#9D7495", bold = false },
