@@ -16,4 +16,11 @@ require("config.neovide")
 require("config.options")
 require("config.keymaps")
 require("config.autocommands")
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+  change_detection = {
+    notify = false,
+  },
+})
+require("config.lsp.config")
+require("config.lsp.setup")
+require("config.lsp.functions")

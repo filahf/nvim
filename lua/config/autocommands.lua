@@ -9,16 +9,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- disable folds in neo-tree
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "nvcheatsheet", "neo-tree" },
-  callback = function()
-    require("ufo").detach()
-    vim.opt_local.foldenable = false
-    vim.opt_local.foldcolumn = "0"
-  end,
-})
-
 -- Remove statusline and tabline when in Alpha
 vim.api.nvim_create_autocmd({ "User" }, {
   pattern = { "AlphaReady" },

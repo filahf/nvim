@@ -41,6 +41,11 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
+-- Don't yank on delete char
+keymap("n", "x", '"_x', opts)
+keymap("n", "X", '"_X', opts)
+keymap("v", "x", '"_x', opts)
+keymap("v", "X", '"_X', opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -53,8 +58,6 @@ keymap("v", ">", ">gv", opts)
 
 -- Plugins --
 
--- telescope
-
 -- vscode like find files
 keymap(
   "n",
@@ -62,15 +65,40 @@ keymap(
   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
 )
 
-keymap("n", "<C-f>", "<cmd>Telescope live_grep_args theme=ivy<cr>")
+keymap("n", "<C-f>", "<cmd>lua require('utils.telescope-multi-rg')()<CR>")
 keymap("n", "<C-S-f>", "<cmd>Telescope resume<cr>")
 
--- NvimTree
+-- NeoTree
 keymap("n", "<leader>e", ":Neotree toggle reveal<CR>", opts)
-
--- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
 keymap("n", "<C-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<C-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+
+-- LSP
+keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+keymap("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+keymap("n", "<leader>cf", "<cmd>lua require('config.lsp.functions').format()<CR>", opts)
+keymap("v", "<leader>cf", function()
+  local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
+  local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, ">"))
+
+  vim.lsp.buf.format({
+    range = {
+      ["start"] = { start_row, 0 },
+      ["end"] = { end_row, 0 },
+    },
+    async = true,
+  })
+end, opts)
+keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", opts)
+keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", opts)
+keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
+keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
