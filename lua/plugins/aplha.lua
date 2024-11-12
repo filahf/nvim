@@ -30,9 +30,9 @@ return {
     local quick_link_btns = {
       type = "group",
       val = {
-        dashboard.button("n", " " .. " new file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("r", " " .. " recent files", ":Telescope oldfiles <CR>"),
         dashboard.button("F", " " .. " find and replace", ":lua require('spectre').open()<CR>"),
+        dashboard.button("n", " " .. " notes", ":e ~/Documents/notes.md <CR>"),
       },
       opts = {
         hl = hl2,
