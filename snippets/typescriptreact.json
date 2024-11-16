@@ -1,0 +1,30 @@
+{
+  "efn (export function)": {
+    "prefix": "efn (export function)",
+    "body": "export const ${1} = (${2}) => {${0}}"
+  },
+  "rc (export React component)": {
+    "prefix": "rc (React component)",
+    "body": [
+      "export const ${1} = () => {",
+      "  return <><\/>",
+      "}"
+    ]
+  },
+  "ec (export const)": {
+    "body": "export const ${1:variable}",
+    "prefix": "ec const"
+  },
+  "clv": {
+    "prefix": "clv (console.log(\"value\",value))",
+    "body": "console.log('$1:', ${1:})"
+  },
+  "props": {
+    "prefix": "props",
+    "body": [
+      "type ${1}Props = {",
+      "  ${0}",
+      "}"
+    ]
+  }
+}

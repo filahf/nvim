@@ -48,11 +48,13 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
-      local icons = require("utils.icons")
+      local icons = require("utils.icons") -- stylua: ignore
+
 
       return {
         options = {
-          theme = "auto",
+          component_separators = '',
+          section_separators = { left = '', right = '' },
           globalstatus = true,
           disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
         },
@@ -88,7 +90,7 @@ return {
             },
           },
           lualine_y = {
-            { "location", padding = { left = 0, right = 1 } },
+            { "progress", padding = { left = 0, right = 1 } },
           },
           lualine_z = {
             function()

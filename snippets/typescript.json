@@ -1,0 +1,14 @@
+{
+  "clv": {
+    "prefix": "clv (console.log(\"value\",value))",
+    "body": "console.log('$1:', ${1:})"
+  },
+  "ec (export const)": {
+    "body": "export const ${1:variable}",
+    "prefix": "ec const"
+  },
+  "efn (export function)": {
+    "prefix": "efn (export function)",
+    "body": "export const ${1} = (${2}) => {${0}}"
+  },
+}

@@ -1,4 +1,5 @@
 return {
+  circle = "  ",
   diagnostics = {
     Error = " ",
     Warn = " ",

@@ -8,17 +8,6 @@ return {
       "s1n7ax/nvim-window-picker",
     },
     cmd = "Neotree",
-    opts = function(_, opts)
-      local function on_move(data)
-        Snacks.rename.on_rename_file(data.source, data.destination)
-      end
-      local events = require("neo-tree.events")
-      opts.event_handlers = opts.event_handlers or {}
-      vim.list_extend(opts.event_handlers, {
-        { event = events.FILE_MOVED, handler = on_move },
-        { event = events.FILE_RENAMED, handler = on_move },
-      })
-    end,
     config = function()
       vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
       vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
@@ -42,7 +31,7 @@ return {
         filesystem = {
           filtered_items = {
             visible = false,
-            hide_dotfiles = true,
+            hide_dotfiles = false,
             hide_gitignored = true,
             hide_by_name = {
               ".DS_Store",
@@ -56,14 +45,14 @@ return {
           },
           hijack_netrw_behavior = "open_default",
           follow_current_file = {
-            enabled = true, -- This will find and focus the file in the active buffer every time
+            enabled = true,          -- This will find and focus the file in the active buffer every time
             --               -- the current file is changed while the tree is open.
             leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
           },
         },
         buffers = {
           follow_current_file = {
-            enabled = true, -- This will find and focus the file in the active buffer every time
+            enabled = true,          -- This will find and focus the file in the active buffer every time
             --              -- the current file is changed while the tree is open.
             leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
           },
