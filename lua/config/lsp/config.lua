@@ -106,7 +106,8 @@ vim.diagnostic.config({
         end
       end
 
-      return string.format("%s [%s]", diagnostic.message, diagnostic.source)
+      -- return string.format("%s [%s]", diagnostic.message, diagnostic.source)
+      return string.format("%s", diagnostic.message)
     end,
   },
   severity_sort = true,
@@ -121,7 +122,7 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   virtual_text = {
-    prefix = icons.circle,
+    -- prefix = icons.circle,
   },
 })
 
