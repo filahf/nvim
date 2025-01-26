@@ -1,7 +1,6 @@
 return {
   {
     "johmsalas/text-case.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
     -- Author's Note: If default keymappings fail to register (possible config issue in my local setup),
     -- verify lazy loading functionality. On failure, disable lazy load and report issue
     -- lazy = false,
@@ -39,11 +38,8 @@ return {
           },
         }
       )
-      require("plugins.telescope").load_extension("textcase")
-      vim.api.nvim_set_keymap('n', 'gu.', '<cmd>TextCaseOpenTelescope<CR>', { desc = "Telescope" })
-      vim.api.nvim_set_keymap('v', 'gu.', "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
+      require("lua.plugins.fzf").load_extension("textcase")
     end,
-    cmd = { "TextCaseOpenTelescope", "Subs" },
     keys = { "gu" }
   },
 }

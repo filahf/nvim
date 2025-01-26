@@ -286,7 +286,7 @@ return {
           }),
         },
         experimental = {
-          ghost_text = true,
+          ghost_text = false,
         },
         performance = {
           max_view_entries = 100,
