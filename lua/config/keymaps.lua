@@ -62,11 +62,11 @@ keymap("v", ">", ">gv", opts)
 keymap(
   "n",
   "<C-p>",
-  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
+  "<cmd>lua require('fzf-lua').files()<cr>"
 )
 
-keymap("n", "<C-f>", "<cmd>lua require('utils.telescope-multi-rg')()<CR>")
-keymap("n", "<C-S-f>", "<cmd>Telescope resume<cr>")
+keymap("n", "<C-f>", "<cmd>lua require('fzf-lua').live_grep()<cr>")
+keymap("n", "<C-S-f>", "<cmd>lua require('fzf-lua').resume()<cr>")
 
 -- NeoTree
 keymap("n", "<leader>e", ":Neotree toggle reveal<CR>", opts)
@@ -76,9 +76,9 @@ keymap("n", "<C-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<
 keymap("x", "<C-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- LSP
-keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-keymap("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+keymap("n", "gd", "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", opts)
+keymap("n", "gr", "<cmd>lua require('fzf-lua').lsp_references()<CR>", opts)
+keymap("n", "gt", "<cmd>lua require('fzf-lua').lsp_typedefs()<CR>", opts)
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", opts)

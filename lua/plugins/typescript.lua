@@ -15,7 +15,7 @@ return {
           ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
           ["textDocument/publishDiagnostics"] = vim.lsp.with(
             vim.lsp.diagnostic.on_publish_diagnostics,
-            { virtual_text = true }
+            { virtual_text = false }
           ),
           ["textDocument/definition"] = function(err, result, method, ...)
             if vim.tbl_islist(result) and #result > 1 then
@@ -40,26 +40,6 @@ return {
       }
     end,
   },
-  {
-    "razak17/tailwind-fold.nvim",
-    opts = {
-      min_chars = 50,
-    },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    ft = { "html", "svelte", "astro", "vue", "typescriptreact" },
-  },
-
-  {
-    "MaximilianLloyd/tw-values.nvim",
-    keys = {
-      { "<Leader>cv", "<CMD>TWValues<CR>", desc = "Tailwind CSS values" },
-    },
-    opts = {
-      border = "rounded",          -- Valid window border style,
-      show_unknown_classes = true, -- Shows the unknown classes popup
-    },
-  },
-
   {
     "laytan/tailwind-sorter.nvim",
     cmd = {
