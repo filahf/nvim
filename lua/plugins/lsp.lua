@@ -5,7 +5,7 @@ return {
     dependencies = {
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     servers = nil,
   },
@@ -13,9 +13,6 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    keys = {
-      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
-    },
   },
 
   {

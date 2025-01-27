@@ -53,7 +53,7 @@ return {
         function()
           Snacks.gitbrowse()
         end,
-        desc = "Git Browse",
+        desc = "Github Browse",
       },
       {
         "<leader>gf",
@@ -68,13 +68,6 @@ return {
           Snacks.lazygit.log()
         end,
         desc = "Lazygit Log (cwd)",
-      },
-      {
-        "<leader>cR",
-        function()
-          Snacks.rename()
-        end,
-        desc = "Rename File",
       },
       {
         "<c-/>",

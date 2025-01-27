@@ -5,7 +5,6 @@ return {
     require("inc_rename").setup({
       input_buffer_type = "dressing",
     })
-    vim.keymap.set("n", "<leader>rr", ":IncRename ")
     vim.keymap.set("n", "<leader>rr", function()
       return ":IncRename " .. vim.fn.expand("<cword>")
     end, { expr = true })

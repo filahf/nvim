@@ -34,7 +34,6 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<ESC>", "<cmd>nohlsearch<CR>", opts)
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
@@ -58,7 +57,6 @@ keymap("v", ">", ">gv", opts)
 
 -- Plugins --
 
--- vscode like find files
 keymap(
   "n",
   "<C-p>",
@@ -71,9 +69,6 @@ keymap("n", "<C-S-f>", "<cmd>lua require('fzf-lua').resume()<cr>")
 -- NeoTree
 keymap("n", "<leader>e", ":Neotree toggle reveal<CR>", opts)
 
--- Comment
-keymap("n", "<C-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<C-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- LSP
 keymap("n", "gd", "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", opts)
@@ -82,7 +77,6 @@ keymap("n", "gt", "<cmd>lua require('fzf-lua').lsp_typedefs()<CR>", opts)
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 keymap("n", "<leader>cf", "<cmd>lua require('config.lsp.functions').format()<CR>", opts)
 keymap("v", "<leader>cf", function()
   local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
@@ -96,9 +90,10 @@ keymap("v", "<leader>cf", function()
     async = true,
   })
 end, opts)
-keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", opts)
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", opts)
 keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
 keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap('n', '<CR>', '<Plug>(leap-forward)', {})
+keymap('n', '_', '<Plug>(leap-backward)', {})
