@@ -54,17 +54,17 @@ return {
     config = true,
   },
 
-  {
-    "axelvc/template-string.nvim",
-    event = "InsertEnter",
-    ft = {
-      "javascript",
-      "typescript",
-      "javascriptreact",
-      "typescriptreact",
-    },
-    config = true, -- run require("template-string").setup()
-  },
+  -- {
+  --   "axelvc/template-string.nvim",
+  --   event = "InsertEnter",
+  --   ft = {
+  --     "javascript",
+  --     "typescript",
+  --     "javascriptreact",
+  --     "typescriptreact",
+  --   },
+  --   config = true, -- run require("template-string").setup()
+  -- },
 
   {
     "dmmulroy/tsc.nvim",
@@ -77,7 +77,7 @@ return {
     config = true,
   },
 
-  { "artemave/workspace-diagnostics.nvim" },
+  -- { "artemave/workspace-diagnostics.nvim" },
   {
     "axelvc/template-string.nvim",
     event = "VeryLazy",

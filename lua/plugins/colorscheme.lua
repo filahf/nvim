@@ -44,7 +44,7 @@ return {
           types = { bold = true, italic = true },
         },
         diagnostics = {
-          errors = {},
+          errors = { underline = true },
           warnings = {},
           information = {},
           hints = {},

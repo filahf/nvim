@@ -1,8 +1,6 @@
 -- Setup installer & lsp configs
 local mason_ok, mason = pcall(require, "mason")
 local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
--- local ufo_utils = require("utils._ufo")
--- local ufo_config_handler = ufo_utils.handler
 
 if not mason_ok or not mason_lsp_ok then
   return

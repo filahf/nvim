@@ -71,9 +71,15 @@ keymap("n", "<leader>e", ":Neotree toggle reveal<CR>", opts)
 
 
 -- LSP
-keymap("n", "gd", "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", opts)
-keymap("n", "gr", "<cmd>lua require('fzf-lua').lsp_references()<CR>", opts)
-keymap("n", "gt", "<cmd>lua require('fzf-lua').lsp_typedefs()<CR>", opts)
+keymap("n", "gd",
+  "<cmd>lua require('fzf-lua').lsp_definitions({ sync = true, jump_to_single_result = true,ignore_current_line=true,})<CR>",
+  opts)
+keymap("n", "gr",
+  "<cmd>lua require('fzf-lua').lsp_references({ sync = true, jump_to_single_result = true,ignore_current_line=true,})<CR>",
+  opts)
+keymap("n", "gt",
+  "<cmd>lua require('fzf-lua').lsp_typedefs({ sync = true, jump_to_single_result = true,ignore_current_line=true,})<CR>",
+  opts)
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", opts)
